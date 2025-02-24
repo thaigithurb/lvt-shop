@@ -2,13 +2,14 @@
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
-import { auth } from "@/app/firebaseConfig";
+import { auth, db } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import Swal from 'sweetalert2';
+import { ref, set } from "firebase/database";
 
 
 export const LoginForm = () => {
@@ -71,7 +72,10 @@ export const LoginForm = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
-                router.push("/products/all")
+                set(ref(db, 'users/' + user.uid), {
+                    fullName: user.displayName,
+                    email: user.email,
+                });
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
