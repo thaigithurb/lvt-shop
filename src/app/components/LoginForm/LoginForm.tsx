@@ -132,7 +132,8 @@ export const LoginForm = () => {
                     name="password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                    onBlur={() => handleBlur("password")}
+                    onFocus={() => handleFocus("passowrd")}
                     error={formik.touched.password && Boolean(formik.errors.password)}
                     helperText={formik.touched.password && formik.errors.password}
                 />
