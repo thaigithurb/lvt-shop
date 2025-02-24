@@ -111,20 +111,17 @@ export const DetailItem = (props: any) => {
                     marginLeft: "50px",
                     marginTop: "20px",
                     color: "black",
+                    marginBottm: {
+                            md: "0",
+                            xs: "15px",
+                        },
+                        fontSize: "50px"
                 }}
                 onClick={() => {
                     router.back();
                 }}
             >
-                <ReplyIcon className="md:m-0 mb-[15px] text-[50px]" 
-                    sx={{
-                        margin: {
-                            md: "0",
-                            xs: "15px",
-                        },
-                        fontSize: "50px"
-                    }}
-                />
+                <ReplyIcon /> 
             </IconButton>
             <div className="xl:max-w-screen-lg md:max-w-screen-md max-w-screen-sm sm:p-0 px-[10px] md:mb-0 mb-[60px] mx-auto">
                 {
