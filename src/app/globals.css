@@ -1,21 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto+Slab:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+
+* {
+  font-family:  "Be Vietnam Pro";
+}
+
+.underline-custom {
+  text-decoration: underline;
+  text-decoration-color: #65A3E1;
+}
+
+.underline-custom:hover {
+  text-decoration-color: #1976D2;
+}
+
+.swal-custom-container {
+  z-index: 9999; 
+  margin-bottom: 10px; 
+}
+
+.error-noti-addToCart {
+  color: #1C6AA6;
+}
+
+.error-noti-addToCart:hover {
+  text-decoration: underline;
+}
+
+/* Thêm vào file CSS của bạn */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 60;
+  left: 0;
+  top: 0;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: inherit;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  display: block;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
