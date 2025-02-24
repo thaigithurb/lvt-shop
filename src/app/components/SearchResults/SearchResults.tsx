@@ -60,24 +60,47 @@ export const SearchResults = () => {
         );
     }
 
+    const openNav = () => {
+        const sidenav = document.getElementsByClassName("sidenav")[0] as HTMLElement;
+        sidenav.style.width = "250px";
+        setIsMenuVisible(true);
+    }
+
+    const closeNav = () => {
+        const sidenav = document.getElementsByClassName("sidenav")[0] as HTMLElement;
+        sidenav.style.width = "0";
+        setIsMenuVisible(false);
+    }
+
     return (
         <>
             <section className="flex gap-[10px] xl:gap-[20px] justify-center">
-                <div className="md:hidden block">
-                    <div
-                        className={`text-[30px] mt-[20px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
-                        onClick={() => setIsMenuVisible(true)}
-                    >
-                        <FiMenu />
+                {/* <div className="md:hidden block">
+                    <div className="flex items-center sm:justify-normal justify-between">
+                        <div
+                            className={`md:hidden md:mr-0 mr-[20px] text-[30px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
+                            onClick={openNav}
+                        >
+                            <FiMenu />
+                        </div>
+                        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={closeNav}></div>
                     </div>
-                    <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={() => setIsMenuVisible(false)}></div>
-                    <div id="mySidenav" className={`sidenav`}>
-                        <button className="closebtn" onClick={() => setIsMenuVisible(false)}>&times;</button>
-                        <Sider className={`w-[200px] bg-white relative xl:w-[220px]`} />
-                    </div>
-                </div>
-                <Sider className={` bg-white hidden md:block relative xl:w-[220px]`}/>
+
+                </div> */}
+                <Sider className={` bg-white hidden md:block relative xl:w-[220px]`} />
                 <div className="flex-1 p-[8px]">
+                    <div className="flex items-center sm:justify-normal justify-between">
+                        <div
+                            className={`md:hidden md:mr-0 mr-[20px] text-[30px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
+                            onClick={openNav}
+                        >
+                            <FiMenu />
+                        </div>
+                        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={closeNav}></div>
+                        <div className={`sidenav`}>
+                            <Sider />
+                        </div>
+                    </div>
                     <Functions onSortChange={setSortOption} />
                     <div className="mt-[12px] relative">
                         {
