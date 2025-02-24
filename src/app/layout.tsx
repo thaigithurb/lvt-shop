@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "LVT Shop",
@@ -19,9 +19,11 @@ export default function RootLayout({
       <body
       >
         <Header />
+        <Suspense>
           <main>
             {children}
           </main>
+        </Suspense>
         <Footer />
       </body>
     </html>

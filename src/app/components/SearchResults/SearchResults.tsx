@@ -9,19 +9,19 @@ import { Pagination } from "@mui/material";
 import { Sider } from "../Sider/Sider";
 import { Functions } from "../Functions/Functions";
 import { FiMenu } from "react-icons/fi";
+import { ToastContainer } from "react-toastify";
 
 export const SearchResults = () => {
     const params = useSearchParams();
     const [items, setItems] = useState<any[]>([]);
     const limit = 8;
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(1);
     const [skip, setSkip] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [initialLoading, setInitialLoading] = useState(true);
     const keyWord = params.get("keyword") || "";
     const [sortOption, setSortOption] = useState("default");
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-
 
     useEffect(() => {
         const fetchSearchItems = async () => {
@@ -43,12 +43,15 @@ export const SearchResults = () => {
             }
         };
 
-        if (keyWord) {
-            fetchSearchItems();
-        }
+        fetchSearchItems();
     }, [keyWord, skip, sortOption]);
 
-    // xử lí load trang
+    const handlePageChange = (e: any, value: number) => {
+        setPage(value);
+        setSkip((value - 1) * limit);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     if (initialLoading) {
         return (
             <div className="flex justify-center items-center h-screen">
@@ -57,47 +60,25 @@ export const SearchResults = () => {
         );
     }
 
-    // xử lí pagination 
-    const handlePageChange = (e: any, value: number) => {
-        setPage(value);
-        setSkip((value - 1) * limit);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    const openNav = () => {
-        const sidenav = document.getElementsByClassName("sidenav")[0] as HTMLElement;
-        sidenav.style.width = "250px";
-        setIsMenuVisible(true);
-    }
-
-    const closeNav = () => {
-        const sidenav = document.getElementsByClassName("sidenav")[0] as HTMLElement;
-        sidenav.style.width = "0";
-        setIsMenuVisible(false);
-    }
-
     return (
         <>
             <section className="flex gap-[10px] xl:gap-[20px] justify-center">
-                <Sider className={`w-[200px] relative md:w-[220px] md:block hidden`} />
-                <div className="flex-1 p-[8px]">
-                    <div className="flex items-center sm:justify-normal justify-between">
-                        <div className="md:hidden block">
-                            <div
-                                className={`md:hidden md:mr-0 mr-[20px] text-[30px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
-                                onClick={openNav}
-                            >
-                                <FiMenu />
-                            </div>
-                            <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={closeNav}></div>
-                            <div className={`sidenav`}>
-                                <Sider />
-                            </div>
-                        </div>
-                        <div className="flex-1 items-center">
-                            <Functions onSortChange={setSortOption} />
-                        </div>
+                <div className="md:hidden block">
+                    <div
+                        className={`text-[30px] mt-[20px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
+                        onClick={() => setIsMenuVisible(true)}
+                    >
+                        <FiMenu />
                     </div>
+                    <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={() => setIsMenuVisible(false)}></div>
+                    <div id="mySidenav" className={`sidenav`}>
+                        <button className="closebtn" onClick={() => setIsMenuVisible(false)}>&times;</button>
+                        <Sider className={`w-[200px] bg-white relative xl:w-[220px]`} />
+                    </div>
+                </div>
+                <Sider className={` bg-white hidden md:block relative xl:w-[220px]`}/>
+                <div className="flex-1 p-[8px]">
+                    <Functions onSortChange={setSortOption} />
                     <div className="mt-[12px] relative">
                         {
                             items.length > 0 ? (
@@ -125,7 +106,7 @@ export const SearchResults = () => {
                                 </>
                             ) : (
                                 <>
-                                    <div className="absolute top-[100px] w-[80%] object-cover left-[120px]">
+                                    <div className="absolute top-[100px] w-full sm:w-[80%] object-cover left-[0px] sm:left-[60px] md:left-[120px]">
                                         <img
                                             src="/oops.png"
                                             alt="no products found"
@@ -139,7 +120,7 @@ export const SearchResults = () => {
                     </div>
                 </div>
             </section>
-
+            <ToastContainer />
         </>
     );
 }
