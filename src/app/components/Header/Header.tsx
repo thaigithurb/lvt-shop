@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
-import { child, get, onValue, ref } from "firebase/database";
+import { get, onValue, ref } from "firebase/database";
 import { Badge, Box, Button, Grow, IconButton } from "@mui/material";
 import Swal from 'sweetalert2';
 
@@ -17,7 +17,6 @@ export const Header = () => {
     const boxRef = useRef<HTMLDivElement>(null);
     const [userState, setUserState] = useState<string>("Log In / Register");
     const [fullname, setFullname] = useState<any>(<FaRegUser />);
-    const router = useRouter();
     const [bagdeContentCount, setBagdeContentCount] = useState<any>(0);
 
     useEffect(() => {

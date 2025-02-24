@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 export const RegisterForm = () => {
 
     const provider = new GoogleAuthProvider();
-    const inputField = document.querySelector(".inputfield");
     const [tagLabel, setTagLabel] = useState<any>(null);
 
     useEffect(() => {

@@ -2,7 +2,7 @@
 
 import { IoMdSearch } from "react-icons/io";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState, useRef, use } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button, Grow, List, ListItem, ListItemButton, Paper } from "@mui/material";
 import { IoMdArrowDropleft } from "react-icons/io";
 

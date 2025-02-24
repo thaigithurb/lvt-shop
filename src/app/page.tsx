@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Box, Button, Fab } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "LVT Shop",

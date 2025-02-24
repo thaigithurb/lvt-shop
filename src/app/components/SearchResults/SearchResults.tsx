@@ -1,12 +1,11 @@
 "use client"
 
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Item } from "../Item/Item";
 import { FaSpinner } from "react-icons/fa6";
-import { IconButton, Pagination } from "@mui/material";
+import { Pagination } from "@mui/material";
 import { Sider } from "../Sider/Sider";
 import { Functions } from "../Functions/Functions";
 import { FiMenu } from "react-icons/fi";
