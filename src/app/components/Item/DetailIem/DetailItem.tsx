@@ -108,20 +108,33 @@ export const DetailItem = (props: any) => {
         <>
             <IconButton
                 sx={{
-                    marginLeft: "50px",
-                    marginTop: "20px",
+                    marginLeft: {
+                        md: '50px',
+                        sm: '20px',
+                        xs: '10px'
+                    },
+                    marginTop: {
+                        sm: '20px',
+                        xs: '10px'
+                    },
                     color: "black",
-                    marginBottm: {
-                            md: "0",
-                            xs: "15px",
-                        },
-                        fontSize: "50px"
+                    marginBottom: {
+                        md: '20px',
+                        xs: '10px'
+                    },
                 }}
                 onClick={() => {
                     router.back();
                 }}
             >
-                <ReplyIcon /> 
+                <ReplyIcon 
+                    sx={{
+                        fontSize: {
+                            md: '50px',
+                            xs: '35px'
+                        }
+                    }}
+                />
             </IconButton>
             <div className="xl:max-w-screen-lg md:max-w-screen-md max-w-screen-sm sm:p-0 px-[10px] md:mb-0 mb-[60px] mx-auto">
                 {
