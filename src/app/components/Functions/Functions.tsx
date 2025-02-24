@@ -111,7 +111,11 @@ export const Functions = ({ onSortChange }: { onSortChange: (sortOption: string)
                                                 sx={{
                                                     margin: "0",
                                                     paddingY: "8px",
-                                                    fontSize: "14px",
+                                                    fontSize: {
+                                                        sm: '14px',
+                                                        xs: '12px',
+                                                    },
+                                                    textWrap: "nowrap",
                                                     fontFamily: "Be Vietnam Pro"
                                                 }}
                                                 onClick={() => handleSortChange(field)}
