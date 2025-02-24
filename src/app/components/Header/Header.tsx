@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "@/app/firebaseConfig";
-import { useRouter } from "next/navigation";
 import { get, onValue, ref } from "firebase/database";
 import { Badge, Box, Button, Grow, IconButton } from "@mui/material";
 import Swal from 'sweetalert2';
