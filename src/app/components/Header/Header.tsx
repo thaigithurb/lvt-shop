@@ -62,7 +62,7 @@ export const Header = () => {
     return (
         <>
             <header className="p-[12px] sm:p-[16px] rounded-b-[8px] border border-[#7b7b7b] shadow-custom z-[40] relative">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between gap-[15px] items-center">
                     <div className="flex gap-[10px] sm:gap-[35px] items-center">
                         <Link href={"/"} className="w-[60px] object-cover">
                             <img
@@ -109,10 +109,17 @@ export const Header = () => {
                                         fontFamily: "Be Vietnam Pro",
                                         "&:hover": {
                                             backgroundColor: "#F5F5F5",
-                                        }
+                                        },
+                                        fontSize: {
+                                            sm: '24px',
+                                            xs: '16px'
+                                        },
+                                        textWrap: "wrap"
                                     }}
                                 >
-                                    {fullname}
+                                    <div>
+                                        {fullname}
+                                    </div>
                                 </IconButton>
                                 <Grow
                                     in={isVisible}
