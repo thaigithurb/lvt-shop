@@ -13,6 +13,7 @@ export const RegisterForm = () => {
 
     const provider = new GoogleAuthProvider();
     const [tagLabel, setTagLabel] = useState<any>(null);
+    provider.setCustomParameters({ prompt: "select_account" });
 
     useEffect(() => {
         setTagLabel(document.querySelector(".taglabel"));

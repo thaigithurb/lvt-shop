@@ -13,8 +13,10 @@ import { ref, set } from "firebase/database";
 
 
 export const LoginForm = () => {
+    
     const router = useRouter();
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
 
     const [inputeStates, setInputStates] = useState({
         email: {
