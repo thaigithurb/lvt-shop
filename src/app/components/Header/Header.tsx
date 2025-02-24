@@ -77,15 +77,18 @@ export const Header = () => {
                             Products
                         </Link>
                     </div>
-                    <div className="flex gap-[20px] items-center">
+                    <div className="flex gap-[5px] md:gap-[20px] items-center">
                         {
                             userState === "Log Out" &&
                             <Link
                                 href={"/user/cart"}
                                 className="cursor-pointer"
                             >
-                                <Badge color="primary" badgeContent={bagdeContentCount}>
-                                    <FaCartShopping />
+                                <Badge 
+                                    color="primary" 
+                                    badgeContent={bagdeContentCount}
+                                >
+                                    <FaCartShopping className="text-[23px] md:text-[26px]"/>
                                 </Badge>
                             </Link>
                         }

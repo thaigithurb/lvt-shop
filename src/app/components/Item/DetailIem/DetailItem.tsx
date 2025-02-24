@@ -118,7 +118,7 @@ export const DetailItem = (props: any) => {
             >
                 <ReplyIcon className="md:m-0 mb-[15px] text-[50px]" />
             </IconButton>
-            <div className="xl:max-w-screen-lg md:max-w-screen-md max-w-screen-sm sm:p-0 px-[10px] mb-[20px] mx-auto">
+            <div className="xl:max-w-screen-lg md:max-w-screen-md max-w-screen-sm sm:p-0 px-[10px] md:mb-0 mb-[60px] mx-auto">
                 {
                     item &&
                     <>
