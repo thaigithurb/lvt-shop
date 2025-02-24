@@ -75,33 +75,25 @@ export const SearchResults = () => {
     return (
         <>
             <section className="flex gap-[10px] xl:gap-[20px] justify-center">
-                {/* <div className="md:hidden block">
-                    <div className="flex items-center sm:justify-normal justify-between">
-                        <div
-                            className={`md:hidden md:mr-0 mr-[20px] text-[30px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
-                            onClick={openNav}
-                        >
-                            <FiMenu />
-                        </div>
-                        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={closeNav}></div>
-                    </div>
-
-                </div> */}
                 <Sider className={` bg-white hidden md:block relative xl:w-[220px]`} />
                 <div className="flex-1 p-[8px]">
                     <div className="flex items-center sm:justify-normal justify-between">
-                        <div
-                            className={`md:hidden md:mr-0 mr-[20px] text-[30px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
-                            onClick={openNav}
-                        >
-                            <FiMenu />
+                        <div className="md:hidden block">
+                            <div
+                                className={`md:hidden md:mr-0 mr-[20px] text-[30px] menu-icon ${isMenuVisible ? 'hidden' : ''}`}
+                                onClick={openNav}
+                            >
+                                <FiMenu />
+                            </div>
+                            <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={closeNav}></div>
+                            <div className={`sidenav`}>
+                                <Sider />
+                            </div>
                         </div>
-                        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${isMenuVisible ? '' : 'hidden'}`} onClick={closeNav}></div>
-                        <div className={`sidenav`}>
-                            <Sider />
+                        <div className="flex-1 items-center">
+                            <Functions onSortChange={setSortOption} />
                         </div>
                     </div>
-                    <Functions onSortChange={setSortOption} />
                     <div className="mt-[12px] relative">
                         {
                             items.length > 0 ? (
