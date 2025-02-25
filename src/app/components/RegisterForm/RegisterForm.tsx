@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ref, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
+import { TextField } from "@mui/material";
 
 export const RegisterForm = () => {
 
@@ -76,7 +77,7 @@ export const RegisterForm = () => {
                         toast: true,
                         position: "top-end",
                         showConfirmButton: false,
-                        timer: 3000,
+                        timer: 1000,
                         timerProgressBar: true,
                         didOpen: (toast) => {
                             toast.onmouseenter = Swal.stopTimer;
@@ -102,6 +103,21 @@ export const RegisterForm = () => {
                 set(ref(db, 'users/' + user.uid), {
                     fullName: user.displayName,
                     email: user.email,
+                });
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Signed in successfully"
                 });
             }).catch((error) => {
                 const errorCode = error.code;
@@ -144,43 +160,25 @@ export const RegisterForm = () => {
                             className="relative"
                             key={index}
                         >
-                            <input
-                                className={`inputfield fullname-field w-full border py-[16px] px-[12px] outline-[#1976D2] hover:border-[black] rounded-[5px] ${formik.touched[field as keyof typeof inputeStates] && formik.errors[field as keyof typeof inputeStates] ? 'border-red-500 mb-[5px]' : 'border-[#C1C1C1] mb-[15px]'}`}
+                            <TextField
+                                sx={{
+                                    width: "100%",
+                                    marginBottom: "16px"
+                                }}
+                                label={
+                                    field === "fullName" ? "Your name" : field === "email" ? "Email address" : field === "password" ? "Password" : "Confirm password"
+                                }
+                                placeholder={field === "fullName" ? "Enter your name" : field === "email" ? "Enter your email" : field === "password" ? "Enter your password" : "Confirm your password"}
                                 type={field === "fullName" ? "text" : field === "email" ? "email" : "password"}
                                 name={field}
-                                id={field}
                                 autoComplete="off"
-                                placeholder={
-                                    inputeStates[field as keyof typeof inputeStates].isFocused ?
-                                        (field === "fullName" ? "Enter your name" :
-                                            field === "email" ? "Enter your email" :
-                                                field === "password" ? "Enter your password" : "Confirm your password") : ''
-                                }
                                 onChange={handleChange}
                                 value={formik.values[field as keyof typeof formik.values]}
+                                error={formik.touched[field as keyof typeof formik.touched] && Boolean(formik.errors[field as keyof typeof formik.errors])}
                                 onBlur={() => handleBlur(field)}
                                 onFocus={() => handleFocus(field)}
+                                helperText={formik.touched[field as keyof typeof formik.touched] && formik.errors[field as keyof typeof formik.errors]}
                             />
-                            {formik.touched[field as keyof typeof formik.touched] && formik.errors[field as keyof typeof formik.errors] && (
-                                <div className="text-[12px] font-[400] mb-[15px] ml-[6px] text-red-500">
-                                    {formik.errors[field as keyof typeof formik.errors]}
-                                </div>
-                            )}
-                            <label
-                                htmlFor={field}
-                                className={`taglabel absolute left-3 transition-all duration-200 pointer-events-none
-                                    ${(inputeStates[field as keyof typeof inputeStates].isFocused || inputeStates[field as keyof typeof inputeStates].value) ?
-                                        '-top-2 text-xs bg-white px-1 text-blue-500' :
-                                        'top-4 text-[#9CA3AF] '
-                                    }`
-                                }
-                            >
-                                {
-                                    field === "fullName" ? "Your name" :
-                                        field === "email" ? "Email" :
-                                            field === "password" ? "Password" : "confirmPassword"
-                                }
-                            </label>
                         </div>
                     )))
                 }

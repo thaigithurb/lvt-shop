@@ -13,7 +13,7 @@ import { ref, set } from "firebase/database";
 
 
 export const LoginForm = () => {
-    
+
     const router = useRouter();
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
@@ -51,7 +51,7 @@ export const LoginForm = () => {
                         toast: true,
                         position: "top-end",
                         showConfirmButton: false,
-                        timer: 3000,
+                        timer: 1000,
                         timerProgressBar: true,
                         didOpen: (toast) => {
                             toast.onmouseenter = Swal.stopTimer;
@@ -77,6 +77,21 @@ export const LoginForm = () => {
                 set(ref(db, 'users/' + user.uid), {
                     fullName: user.displayName,
                     email: user.email,
+                });
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Signed in successfully"
                 });
             }).catch((error) => {
                 const errorCode = error.code;
@@ -129,9 +144,11 @@ export const LoginForm = () => {
                 <TextField
                     sx={{
                         width: "100%",
-                        marginBottom: "16px"
+                        marginBottom: "16px",
                     }}
-                    autoComplete="on"
+                    inputProps={{
+                        autoComplete: 'current-password',
+                    }}
                     variant="outlined"
                     label="Password *"
                     type="password"

@@ -176,43 +176,43 @@ export const AddToCart = () => {
 
     return (
         <>
-            <div className="flex justify-between pt-[20px] px-[20px] ">
+            <div className="md:flex justify-between gap-[20px] pt-[20px] md:px-[20px] px-[10px] pb-[20px] md:pb-[50px]">
                 <div>
                     {
                         items.length > 0 ? (
                             items.map((item, index) => (
-                                <div key={index} className="h-fit mb-[5px]">
-                                    <div className="flex bg-[#ffffff] gap-[10px] p-[20px] rounded-[8px] drop-shadow-md shadow-md">
+                                <div key={index} className="h-fit mb-[10px] sm:mb-[5px]">
+                                    <div className="flex bg-[#ffffff] gap-[10px] p-[10px] lg:p-[20px] rounded-[8px] drop-shadow-md shadow-md">
                                         <div className="object-contain overflow-hidden rounded-[8px] w-[80px]">
                                             <img
                                                 src={item.itemImg}
                                                 alt={item.itemName}
-                                                className="object-contain"
+                                                className="object-contain h-full w-full"
                                             />
                                         </div>
                                         <div className="flex-1">
-                                            <div className="flex gap-[5px]">
-                                                <div className="font-[600]">
+                                            <div className="">
+                                                <div className="font-[600] lg:text-[16px] text-[14px] gap-[5px] lg:flex">
                                                     Product:
-                                                </div>
-                                                <div className="font-[300]">
-                                                    {item.itemName}
+                                                    <div className="font-[300]">
+                                                        {item.itemName}
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className="flex gap-[5px]">
-                                                <div className="font-[600]">
+                                            <div className="">
+                                                <div className="font-[600] lg:text-[16px] text-[14px] flex gap-[5px]">
                                                     Price:
-                                                </div>
-                                                <div className="font-[300]">
-                                                    {item.itemPrice}
+                                                    <div className="font-[300]">
+                                                        {item.itemPrice}
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className="flex gap-[5px]">
-                                                <div className="font-[600]">
+                                            <div className="">
+                                                <div className="lg:text-[16px] text-[14px] font-[600] flex gap-[5px]">
                                                     ID:
-                                                </div>
-                                                <div className="font-[300]">
-                                                    {item.itemId}
+                                                    <div className="font-[300]">
+                                                        {item.itemId}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,13 +230,13 @@ export const AddToCart = () => {
                         )
                     }
                 </div>
-                <div className="">
+                <div className="sm:m-0 mt-[15px]">
                     <form className="">
-                        <div className="bg-[#fcf9f9] p-[40px] shadow-md drop-shadow-md rounded-[8px] flex flex-col gap-y-[15px]">
-                            <div className="text-center text-[24px] font-[600]">
+                        <div className="bg-[#fcf9f9] p-[18px] md:p-[25px] lg:p-[40px] shadow-md drop-shadow-md rounded-[8px] flex flex-col gap-y-[13px] lg:gap-y-[15px]">
+                            <div className="text-center text-[20px] lg:text-[24px] font-[600]">
                                 ORDER SUMMARY
                             </div>
-                            <div className="flex justify-between text-[#555555]">
+                            <div className="flex lg:text-[16px] text-[14px] justify-between text-[#555555]">
                                 <div>
                                     Total:
                                 </div>
@@ -244,7 +244,7 @@ export const AddToCart = () => {
                                     ${totalPrice.toFixed(2)}
                                 </div>
                             </div>
-                            <div className="border-b border-b-[#B2B2B2] py-[10px] flex justify-between gap-[15px] text-[#555555]">
+                            <div className="border-b border-b-[#B2B2B2] lg:text-[16px] text-[14px] py-[10px] flex gap-[5px] justify-between text-[#555555]">
                                 <div className="">
                                     Estimate Shipping:
                                 </div>
@@ -252,7 +252,7 @@ export const AddToCart = () => {
                                     $0.00
                                 </div>
                             </div>
-                            <div className="flex justify-between text-[#555555] font-[500]">
+                            <div className="flex lg:text-[16px] text-[14px] justify-between text-[#555555] font-[500]">
                                 <div>
                                     Subtotal:
                                 </div>

@@ -11,8 +11,8 @@ export const ButtonItem = (props: any) => {
     
     return (
         <>
-            <div className="flex items-center justify-between gap-[30px] ml-[10px]">
-                <div className="flex items-center gap-[10px]">
+            <div className="flex items-center justify-between gap-[5px] sm:gap-[10px] md:gap-[30px] md:ml-[10px]">
+                <div className="flex items-center gap-[5px] md:gap-[10px]">
                     {
                         item.quantity === 1 ?
                             <IconButton disabled>
@@ -24,7 +24,7 @@ export const ButtonItem = (props: any) => {
                                 <RemoveIcon />
                             </IconButton>
                     }
-                    <div className="">
+                    <div className="lg:text-[16px] text-[14px]">
                         {
                             item.quantity
                         }
