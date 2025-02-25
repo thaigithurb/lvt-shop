@@ -176,8 +176,8 @@ export const AddToCart = () => {
 
     return (
         <>
-            <div className="md:flex justify-between gap-[20px] pt-[20px] md:px-[20px] px-[10px] pb-[20px] md:pb-[50px]">
-                <div>
+            <div className="md:flex relative justify-between gap-[20px] pt-[20px] md:px-[20px] px-[10px] pb-[20px] md:pb-[50px]">
+                <div className="">
                     {
                         items.length > 0 ? (
                             items.map((item, index) => (
@@ -221,7 +221,7 @@ export const AddToCart = () => {
                                 </div>
                             ))
                         ) : (
-                            <div className=''>
+                            <div className='sm:m-0 mt-[100px] mb-[100px]'>
                                 <img
                                     src='/empty-cart.png'
                                     alt='emptyCart'
@@ -232,8 +232,8 @@ export const AddToCart = () => {
                 </div>
                 <div className="sm:m-0 mt-[15px]">
                     <form className="">
-                        <div className="bg-[#fcf9f9] p-[18px] md:p-[25px] lg:p-[40px] shadow-md drop-shadow-md rounded-[8px] flex flex-col gap-y-[13px] lg:gap-y-[15px]">
-                            <div className="text-center text-[20px] lg:text-[24px] font-[600]">
+                        <div className="bg-[#fcf9f9] p-[18px] lg:p-[25px] xl:p-[40px] shadow-md drop-shadow-md rounded-[8px] flex flex-col gap-y-[13px] lg:gap-y-[15px]">
+                            <div className="text-center lg:text-[20px] xl:text-[24px] font-[600] text-nowrap">
                                 ORDER SUMMARY
                             </div>
                             <div className="flex lg:text-[16px] text-[14px] justify-between text-[#555555]">
