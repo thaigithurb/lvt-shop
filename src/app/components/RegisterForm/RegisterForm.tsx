@@ -8,7 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ref, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 export const RegisterForm = () => {
 
@@ -195,9 +195,18 @@ export const RegisterForm = () => {
                         </div>
                     </div>
                 </div>
-                <button className="w-full bg-[#1976D2] font-[500] text-[14px] uppercase py-[10px] rounded-[5px] text-white hover:bg-[#1565C0] mb-[20px]">
-                    Register
-                </button>
+                <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    sx={{
+                        marginBottom: "20px",
+                        padding: "10px"
+                    }}
+                >
+                    Log In
+                </Button>
                 <Link
                     href={"/login"}
                     className="flex justify-center underline-custom text-[#1976D2] cursor-pointer"
