@@ -177,11 +177,11 @@ export const AddToCart = () => {
     return (
         <>
             <div className="md:flex relative justify-between gap-[20px] pt-[20px] md:px-[20px] px-[10px] pb-[20px] md:pb-[50px]">
-                <div className="">
+                <div className="h-full">
                     {
                         items.length > 0 ? (
                             items.map((item, index) => (
-                                <div key={index} className="h-fit mb-[10px] sm:mb-[5px]">
+                                <div key={index} className="h-full mb-[10px] sm:mb-[5px]">
                                     <div className="flex bg-[#ffffff] gap-[10px] p-[10px] lg:p-[20px] rounded-[8px] drop-shadow-md shadow-md">
                                         <div className="object-contain overflow-hidden rounded-[8px] w-[80px]">
                                             <img
@@ -230,7 +230,7 @@ export const AddToCart = () => {
                         )
                     }
                 </div>
-                <div className="sm:m-0 mt-[15px]">
+                <div className="md:m-0 my-[30px]">
                     <form className="">
                         <div className="bg-[#fcf9f9] p-[18px] lg:p-[25px] xl:p-[40px] shadow-md drop-shadow-md rounded-[8px] flex flex-col gap-y-[13px] lg:gap-y-[15px]">
                             <div className="text-center lg:text-[20px] xl:text-[24px] font-[600] text-nowrap">
