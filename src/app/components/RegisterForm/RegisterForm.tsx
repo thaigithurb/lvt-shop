@@ -205,7 +205,7 @@ export const RegisterForm = () => {
                         padding: "10px"
                     }}
                 >
-                    Log In
+                    Register
                 </Button>
                 <Link
                     href={"/login"}
