@@ -145,7 +145,7 @@ export const Functions = ({ onSortChange }: { onSortChange: (sortOption: string)
                                 autoComplete="off"
                                 type="text"
                                 name="keyword"
-                                className="dark:highlight-white/5 border border-black block w-full rounded-[6px] px-3 py-2 pl-10 font-sans text-sm text-gray-500 ring-1 ring-gray-900/10 dark:bg-gray-800 dark:text-gray-400 dark:ring-0"
+                                className=" border border-black block w-full rounded-[6px] px-3 py-2 pl-10 font-sans text-sm"
                                 id="search"
                                 value={keyWord}
                                 onChange={(e) => setKeyWord(e.target.value)}
